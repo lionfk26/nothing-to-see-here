@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Play GitHub Pages games instantly. Paste any game URL and play right here—no installs, no forks, just fun.">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src https:; script-src 'self' 'unsafe-inline'">
   <title>GITGAMES // Play Anything</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%23fff'>[G]</text></svg>">
 </head>
 <body>
 
   <!-- HEADER -->
-  <header class="site-header">
+  <header class="site-header" role="banner">
     <div class="header-inner">
       <div class="logo">
         <span class="logo-bracket">[</span>
@@ -17,143 +22,145 @@
         <span class="logo-bracket">]</span>
         <span class="logo-tag">// play anything on github</span>
       </div>
-      <nav class="header-nav">
+      <nav class="header-nav" role="navigation" aria-label="Main navigation">
         <a href="#library" class="nav-link">Library</a>
         <a href="#add-game" class="nav-link">+ Add Game</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <p class="hero-eyebrow">Open source. Instant play.</p>
-        <h1 class="hero-title">Your GitHub<br><span class="hero-accent">game library.</span></h1>
-        <p class="hero-sub">Paste any GitHub Pages game URL. It loads right here — no installs, no forks, just play.</p>
-        <a href="#add-game" class="cta-btn">Add your first game ↓</a>
-      </div>
-      <div class="hero-terminal">
-        <div class="terminal-bar">
-          <span class="t-dot red"></span>
-          <span class="t-dot amber"></span>
-          <span class="t-dot green"></span>
-          <span class="t-title">gitgames.sh</span>
+  <main>
+    <!-- HERO -->
+    <section class="hero" role="region" aria-label="Hero section">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="hero-eyebrow">Open source. Instant play.</p>
+          <h1 class="hero-title">Your GitHub<br><span class="hero-accent">game library.</span></h1>
+          <p class="hero-sub">Paste any GitHub Pages game URL. It loads right here — no installs, no forks, just play.</p>
+          <a href="#add-game" class="cta-btn">Add your first game ↓</a>
         </div>
-        <div class="terminal-body">
-          <p><span class="t-prompt">$</span> loading games from github...</p>
-          <p><span class="t-prompt">→</span> <span class="t-green">snake.js</span> .............. <span class="t-dim">ready</span></p>
-          <p><span class="t-prompt">→</span> <span class="t-green">tetris-clone</span> ......... <span class="t-dim">ready</span></p>
-          <p><span class="t-prompt">→</span> <span class="t-green">space-shooter</span> ........ <span class="t-dim">ready</span></p>
-          <p><span class="t-prompt">$</span> <span class="t-cursor">_</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ADD GAME -->
-  <section class="add-section" id="add-game">
-    <div class="section-inner">
-      <div class="section-label">// ADD A GAME</div>
-      <h2 class="section-title">Load from GitHub</h2>
-      <p class="section-sub">Enter the GitHub Pages URL of any HTML5 game. It must be publicly accessible (github.io or raw.githubusercontent.com links work great).</p>
-
-      <div class="add-form">
-        <div class="form-row">
-          <label class="form-label" for="game-url">Game URL</label>
-          <input id="game-url" class="form-input" type="url" placeholder="https://username.github.io/my-game/" autocomplete="off" spellcheck="false">
-        </div>
-        <div class="form-row">
-          <label class="form-label" for="game-name">Game Name</label>
-          <input id="game-name" class="form-input" type="text" placeholder="My Awesome Game" autocomplete="off">
-        </div>
-        <div class="form-row-split">
-          <div class="form-row">
-            <label class="form-label" for="game-author">Author / Repo</label>
-            <input id="game-author" class="form-input" type="text" placeholder="username/repo-name" autocomplete="off">
+        <div class="hero-terminal">
+          <div class="terminal-bar">
+            <span class="t-dot red"></span>
+            <span class="t-dot amber"></span>
+            <span class="t-dot green"></span>
+            <span class="t-title">gitgames.sh</span>
           </div>
-          <div class="form-row">
-            <label class="form-label" for="game-tag">Tag</label>
-            <select id="game-tag" class="form-input form-select">
-              <option value="arcade">Arcade</option>
-              <option value="puzzle">Puzzle</option>
-              <option value="platformer">Platformer</option>
-              <option value="shooter">Shooter</option>
-              <option value="strategy">Strategy</option>
-              <option value="rpg">RPG</option>
-              <option value="other">Other</option>
-            </select>
+          <div class="terminal-body">
+            <p><span class="t-prompt">$</span> loading games from github...</p>
+            <p><span class="t-prompt">→</span> <span class="t-green">snake.js</span> .............. <span class="t-dim">ready</span></p>
+            <p><span class="t-prompt">→</span> <span class="t-green">tetris-clone</span> ......... <span class="t-dim">ready</span></p>
+            <p><span class="t-prompt">→</span> <span class="t-green">space-shooter</span> ........ <span class="t-dim">ready</span></p>
+            <p><span class="t-prompt">$</span> <span class="t-cursor">_</span></p>
           </div>
         </div>
-        <div class="form-actions">
-          <button class="cta-btn" onclick="addGame()">Add to Library</button>
-          <span class="form-hint" id="form-hint"></span>
+      </div>
+    </section>
+
+    <!-- ADD GAME -->
+    <section class="add-section" id="add-game" role="region" aria-label="Add a game section">
+      <div class="section-inner">
+        <div class="section-label">// ADD A GAME</div>
+        <h2 class="section-title">Load from GitHub</h2>
+        <p class="section-sub">Enter the GitHub Pages URL of any HTML5 game. It must be publicly accessible (github.io or raw.githubusercontent.com links work great).</p>
+
+        <div class="add-form">
+          <div class="form-row">
+            <label class="form-label" for="game-url">Game URL</label>
+            <input id="game-url" class="form-input" type="url" placeholder="https://username.github.io/my-game/" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="game-name">Game Name</label>
+            <input id="game-name" class="form-input" type="text" placeholder="My Awesome Game" autocomplete="off">
+          </div>
+          <div class="form-row-split">
+            <div class="form-row">
+              <label class="form-label" for="game-author">Author / Repo</label>
+              <input id="game-author" class="form-input" type="text" placeholder="username/repo-name" autocomplete="off">
+            </div>
+            <div class="form-row">
+              <label class="form-label" for="game-tag">Tag</label>
+              <select id="game-tag" class="form-input form-select">
+                <option value="arcade">Arcade</option>
+                <option value="puzzle">Puzzle</option>
+                <option value="platformer">Platformer</option>
+                <option value="shooter">Shooter</option>
+                <option value="strategy">Strategy</option>
+                <option value="rpg">RPG</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="cta-btn" onclick="addGame()">Add to Library</button>
+            <span class="form-hint" id="form-hint"></span>
+          </div>
+        </div>
+
+        <!-- Built-in demo games -->
+        <div class="demo-hint">
+          <span class="demo-label">Try a demo game:</span>
+          <button class="demo-pill" onclick="loadDemo('https://gabrielecirulli.github.io/2048/', '2048', 'gabrielecirulli/2048', 'puzzle')">2048</button>
+          <button class="demo-pill" onclick="loadDemo('https://hextris.io/', 'Hextris', 'hextris/hextris', 'puzzle')">Hextris</button>
+          <button class="demo-pill" onclick="loadDemo('https://agar.io/', 'Agar.io (example)', 'opagar/agario', 'arcade')">Agar.io</button>
         </div>
       </div>
+    </section>
 
-      <!-- Built-in demo games -->
-      <div class="demo-hint">
-        <span class="demo-label">Try a demo game:</span>
-        <button class="demo-pill" onclick="loadDemo('https://gabrielecirulli.github.io/2048/', '2048', 'gabrielecirulli/2048', 'puzzle')">2048</button>
-        <button class="demo-pill" onclick="loadDemo('https://hextris.io/', 'Hextris', 'hextris/hextris', 'puzzle')">Hextris</button>
-        <button class="demo-pill" onclick="loadDemo('https://agar.io/', 'Agar.io (example)', 'opagar/agario', 'arcade')">Agar.io</button>
+    <!-- GAME PLAYER MODAL -->
+    <div class="game-modal" id="game-modal" role="dialog" aria-label="Game player" aria-hidden="true">
+      <div class="modal-overlay" onclick="closeGame()"></div>
+      <div class="modal-window">
+        <div class="modal-header">
+          <div class="modal-title-wrap">
+            <span class="modal-tag" id="modal-tag">ARCADE</span>
+            <span class="modal-game-name" id="modal-game-name">Game</span>
+          </div>
+          <div class="modal-controls">
+            <a class="modal-github-link" id="modal-github-link" href="#" target="_blank" rel="noopener" aria-label="Open game repository on GitHub">↗ GitHub</a>
+            <button class="modal-fullscreen" onclick="toggleFullscreen()" title="Toggle fullscreen" aria-label="Toggle fullscreen mode">⛶</button>
+            <button class="modal-close" onclick="closeGame()" title="Close game" aria-label="Close game player">✕</button>
+          </div>
+        </div>
+        <div class="modal-frame-wrap">
+          <iframe id="game-frame" class="game-frame" sandbox="allow-scripts allow-forms allow-pointer-lock allow-popups" allowfullscreen title="Game player iframe"></iframe>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- GAME PLAYER MODAL -->
-  <div class="game-modal" id="game-modal">
-    <div class="modal-overlay" onclick="closeGame()"></div>
-    <div class="modal-window">
-      <div class="modal-header">
-        <div class="modal-title-wrap">
-          <span class="modal-tag" id="modal-tag">ARCADE</span>
-          <span class="modal-game-name" id="modal-game-name">Game</span>
+    <!-- LIBRARY -->
+    <section class="library-section" id="library" role="region" aria-label="Game library">
+      <div class="section-inner">
+        <div class="library-header">
+          <div>
+            <div class="section-label">// LIBRARY</div>
+            <h2 class="section-title">Your Games</h2>
+          </div>
+          <div class="filter-bar" role="group" aria-label="Filter games by category">
+            <button class="filter-btn active" data-filter="all" onclick="filterGames('all', this)">All</button>
+            <button class="filter-btn" data-filter="arcade" onclick="filterGames('arcade', this)">Arcade</button>
+            <button class="filter-btn" data-filter="puzzle" onclick="filterGames('puzzle', this)">Puzzle</button>
+            <button class="filter-btn" data-filter="platformer" onclick="filterGames('platformer', this)">Platformer</button>
+            <button class="filter-btn" data-filter="shooter" onclick="filterGames('shooter', this)">Shooter</button>
+            <button class="filter-btn" data-filter="other" onclick="filterGames('other', this)">Other</button>
+          </div>
         </div>
-        <div class="modal-controls">
-          <a class="modal-github-link" id="modal-github-link" href="#" target="_blank" rel="noopener">↗ GitHub</a>
-          <button class="modal-fullscreen" onclick="toggleFullscreen()" title="Fullscreen">⛶</button>
-          <button class="modal-close" onclick="closeGame()">✕</button>
-        </div>
-      </div>
-      <div class="modal-frame-wrap">
-        <iframe id="game-frame" class="game-frame" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-popups" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
 
-  <!-- LIBRARY -->
-  <section class="library-section" id="library">
-    <div class="section-inner">
-      <div class="library-header">
-        <div>
-          <div class="section-label">// LIBRARY</div>
-          <h2 class="section-title">Your Games</h2>
+        <div class="games-grid" id="games-grid">
+          <!-- Cards injected by JS -->
         </div>
-        <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all" onclick="filterGames('all', this)">All</button>
-          <button class="filter-btn" data-filter="arcade" onclick="filterGames('arcade', this)">Arcade</button>
-          <button class="filter-btn" data-filter="puzzle" onclick="filterGames('puzzle', this)">Puzzle</button>
-          <button class="filter-btn" data-filter="platformer" onclick="filterGames('platformer', this)">Platformer</button>
-          <button class="filter-btn" data-filter="shooter" onclick="filterGames('shooter', this)">Shooter</button>
-          <button class="filter-btn" data-filter="other" onclick="filterGames('other', this)">Other</button>
+
+        <div class="empty-state" id="empty-state">
+          <p class="empty-icon" aria-hidden="true">🕹️</p>
+          <p class="empty-title">No games yet</p>
+          <p class="empty-sub">Add a GitHub Pages game above to get started.</p>
         </div>
       </div>
-
-      <div class="games-grid" id="games-grid">
-        <!-- Cards injected by JS -->
-      </div>
-
-      <div class="empty-state" id="empty-state">
-        <p class="empty-icon">🕹️</p>
-        <p class="empty-title">No games yet</p>
-        <p class="empty-sub">Add a GitHub Pages game above to get started.</p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
       <span class="footer-logo">[GITGAMES]</span>
       <span class="footer-note">Games are loaded from external GitHub Pages URLs. Hosted on GitHub Pages.</span>
@@ -161,6 +168,6 @@
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
